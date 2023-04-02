@@ -1,0 +1,282 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6063988991818294224
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4081577647740790165}
+  - component: {fileID: 3522389044941145091}
+  m_Layer: 0
+  m_Name: Information Manager
+  m_TagString: infoManager
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4081577647740790165
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063988991818294224}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3522389044941145091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6063988991818294224}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da2f4122060624a87960a8c2e37d8239, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clowns:
+  - name: Ooh LaLa
+    rarity: common
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 1
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Balla Pitta
+    rarity: common
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Klep
+    rarity: common
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Doinko
+    rarity: common
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Gimble
+    rarity: common
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Popette
+    rarity: uncommon
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Bibby
+    rarity: uncommon
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Quidge
+    rarity: uncommon
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Fabriege
+    rarity: uncommon
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Gerty
+    rarity: rare
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Cheesecake
+    rarity: rare
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  - name: Belphebub
+    rarity: rare
+    targetAttraction: {x: 0, y: 0, z: 0}
+    unlocked: 0
+    active: 0
+    working: 0
+    workingAttraction: 
+    ID: 
+  clownSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  attractions:
+  - name: Bake Sale
+    targetClown: Ooh LaLa
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.1
+    unlockTicketCost: 1000
+    unlockCoinCost: 0
+    upgradeCost: 500
+    ticketProduction: 50
+  - name: Ball Pit
+    targetClown: Balla Pitta
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.1
+    unlockTicketCost: 2000
+    unlockCoinCost: 1
+    upgradeCost: 1000
+    ticketProduction: 100
+  - name: Painting
+    targetClown: Fabriege
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.1
+    unlockTicketCost: 3000
+    unlockCoinCost: 1
+    upgradeCost: 1500
+    ticketProduction: 150
+  - name: Magicians
+    targetClown: Klep
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.1
+    unlockTicketCost: 4000
+    unlockCoinCost: 1
+    upgradeCost: 2000
+    ticketProduction: 200
+  - name: Juggling
+    targetClown: Gimble
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.1
+    unlockTicketCost: 5000
+    unlockCoinCost: 1
+    upgradeCost: 2500
+    ticketProduction: 250
+  - name: Fireworks
+    targetClown: Doinko
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.12
+    unlockTicketCost: 8000
+    unlockCoinCost: 2
+    upgradeCost: 4000
+    ticketProduction: 400
+  - name: Buffoonery
+    targetClown: 
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.12
+    unlockTicketCost: 9000
+    unlockCoinCost: 2
+    upgradeCost: 4500
+    ticketProduction: 450
+  - name: Cat Time
+    targetClown: 
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.12
+    unlockTicketCost: 10000
+    unlockCoinCost: 2
+    upgradeCost: 5000
+    ticketProduction: 500
+  - name: Unicycle
+    targetClown: 
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.15
+    unlockTicketCost: 11000
+    unlockCoinCost: 2
+    upgradeCost: 5500
+    ticketProduction: 550
+  - name: Strength
+    targetClown: 
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.15
+    unlockTicketCost: 20000
+    unlockCoinCost: 3
+    upgradeCost: 10000
+    ticketProduction: 1000
+  - name: Balloons
+    targetClown: 
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.15
+    unlockTicketCost: 40000
+    unlockCoinCost: 3
+    upgradeCost: 20000
+    ticketProduction: 2000
+  - name: Jail
+    targetClown: 
+    unlocked: 0
+    inUse: 0
+    level: 1
+    increaseRate: 1.15
+    unlockTicketCost: 60000
+    unlockCoinCost: 3
+    upgradeCost: 30000
+    ticketProduction: 3000
+  funnyMoney: 0
+  clownCoins: 0
+  whimsy: 0
+  rareClowns: 0
+  uncommonClowns: 0
+  commonClowns: 0

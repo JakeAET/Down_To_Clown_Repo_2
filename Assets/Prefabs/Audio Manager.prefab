@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6425265096055942972
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6425265096055942975}
+  - component: {fileID: 6425265096055942974}
+  m_Layer: 0
+  m_Name: Audio Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6425265096055942975
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425265096055942972}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6425265096055942974
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6425265096055942972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb3b36563f8cd4c7ba5496417ef35e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  copyPaste: FindObjectOfType<audioManager>().Play('sound name');
+  sounds:
+  - name: wiggle
+    clip: {fileID: 8300000, guid: be6523aafc90b421cb9ffc5ac45e43c4, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 1
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: walk
+    clip: {fileID: 8300000, guid: 03aa6e05bc3ce49468a1670318ec770f, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 1
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: main screen
+    clip: {fileID: 8300000, guid: 86352466311dd42619f7e3bff8ee4789, type: 3}
+    volume: 0.5
+    pitch: 1.5
+    loop: 1
+    music: 1
+    sfx: 0
+    source: {fileID: 0}
+  - name: home screen
+    clip: {fileID: 8300000, guid: 637c40c2ae511468099bca81dbb8858b, type: 3}
+    volume: 0.2
+    pitch: 1.5
+    loop: 1
+    music: 1
+    sfx: 0
+    source: {fileID: 0}
+  - name: home screen
+    clip: {fileID: 8300000, guid: 637c40c2ae511468099bca81dbb8858b, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 1
+    music: 1
+    sfx: 0
+    source: {fileID: 0}
+  - name: honk
+    clip: {fileID: 8300000, guid: 0fdc1a9eaa5d946af89350e18497b872, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 0
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: unlock
+    clip: {fileID: 8300000, guid: ceac4bc790f1947a28ee67c2cb81abea, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 0
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: upgrade
+    clip: {fileID: 8300000, guid: 859fccfdadd9e4b1cb06b7e78a69db46, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 0
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: ui
+    clip: {fileID: 8300000, guid: a20587600e4ef414fa124868f79f57f3, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 0
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
+  - name: invalid
+    clip: {fileID: 8300000, guid: 0cc8e37e2b3de43b0b154c4dfdaadea7, type: 3}
+    volume: 1
+    pitch: 1.5
+    loop: 0
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
+  home: 0
+  main: 1
