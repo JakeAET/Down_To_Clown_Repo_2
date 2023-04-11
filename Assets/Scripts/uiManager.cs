@@ -163,48 +163,51 @@ public class uiManager : MonoBehaviour
     {
         if (active)
         {
-            LeanTween.moveLocal(bottomUI, new Vector3(0, -500, 0), 1f).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.moveLocal(bottomUI, new Vector3(0, 0, 0), 1f).setEase(LeanTweenType.easeOutCubic);
         }
         else
         {
-            LeanTween.moveLocal(bottomUI, new Vector3(0, -1036, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
+            LeanTween.moveLocal(bottomUI, new Vector3(0, -400, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
         }
     }
 
     public void summon(bool active)
     {
-        if (active)
+        if (!tCam.presetZooming)
         {
-            if (tutorialMang.step == tutorialManager.tutorial.Whimsy && !tutorialMang.tentClicked)
+            if (active)
             {
-                tutorialMang.tentClick();
+                if (tutorialMang.step == tutorialManager.tutorial.Whimsy && !tutorialMang.tentClicked)
+                {
+                    tutorialMang.tentClick();
+                }
+
+                tCam.zoomLockCam("summon");
+
+                LeanTween.moveLocal(bottomUI, new Vector3(0, -800, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
+                LeanTween.moveLocal(summonUI, new Vector3(0, 0, 0), 1f).setEase(LeanTweenType.easeInOutCubic);
+
+                LeanTween.scale(drumCombo, new Vector3(0.7f, 0.7f, 0.7f), 0.5f).setEase(LeanTweenType.easeInBounce).setDelay(0.5f);
+                LeanTween.alpha(drum.GetComponent<RectTransform>(), 1, 0.5f).setDelay(0.5f);
+                LeanTween.alpha(drumStick1.GetComponent<RectTransform>(), 1, 0.5f).setDelay(0.5f);
+                LeanTween.alpha(drumStick2.GetComponent<RectTransform>(), 1, 0.5f).setDelay(0.5f);
             }
-
-            tCam.zoomLockCam("summon");
-
-            LeanTween.moveLocal(bottomUI, new Vector3(0, -1036, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
-            LeanTween.moveLocal(summonUI, new Vector3(0, -564, 0), 1f).setEase(LeanTweenType.easeInOutCubic);
-
-            LeanTween.scale(drumCombo, new Vector3(0.7f, 0.7f, 0.7f), 0.5f).setEase(LeanTweenType.easeInBounce).setDelay(0.5f);
-            LeanTween.alpha(drum.GetComponent<RectTransform>(), 1, 0.5f).setDelay(0.5f);
-            LeanTween.alpha(drumStick1.GetComponent<RectTransform>(), 1, 0.5f).setDelay(0.5f);
-            LeanTween.alpha(drumStick2.GetComponent<RectTransform>(), 1, 0.5f).setDelay(0.5f);
-        }
-        else
-        {
-            tCam.zoomLockCam("default");
-
-            LeanTween.moveLocal(bottomUI, new Vector3(0, -500, 0), 1f).setEase(LeanTweenType.easeOutCubic);
-            LeanTween.moveLocal(summonUI, new Vector3(0, -1100, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
-
-            LeanTween.scale(drumCombo, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutBounce);
-            LeanTween.alpha(drum.GetComponent<RectTransform>(), 0, 0.5f);
-            LeanTween.alpha(drumStick1.GetComponent<RectTransform>(), 0, 0.5f);
-            LeanTween.alpha(drumStick2.GetComponent<RectTransform>(), 0, 0.5f);
-
-            if (settingsActive)
+            else
             {
-                settings(false);
+                tCam.zoomLockCam("default");
+
+                LeanTween.moveLocal(bottomUI, new Vector3(0, 0, 0), 1f).setEase(LeanTweenType.easeOutCubic);
+                LeanTween.moveLocal(summonUI, new Vector3(0, -800, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
+
+                LeanTween.scale(drumCombo, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutBounce);
+                LeanTween.alpha(drum.GetComponent<RectTransform>(), 0, 0.5f);
+                LeanTween.alpha(drumStick1.GetComponent<RectTransform>(), 0, 0.5f);
+                LeanTween.alpha(drumStick2.GetComponent<RectTransform>(), 0, 0.5f);
+
+                if (settingsActive)
+                {
+                    settings(false);
+                }
             }
         }
     }
@@ -245,13 +248,13 @@ public class uiManager : MonoBehaviour
     {
         if (active)
         {
-            LeanTween.moveLocal(settingsUI, new Vector3(0, -295, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
-            LeanTween.moveLocal(topUI, new Vector3(0, 295, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.moveLocal(settingsUI, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
+            LeanTween.moveLocal(topUI, new Vector3(0, 400, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
             settingsActive = true;
         }
         else
         {
-            LeanTween.moveLocal(settingsUI, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+            LeanTween.moveLocal(settingsUI, new Vector3(0, 400, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
             LeanTween.moveLocal(topUI, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
             settingsActive = false;
         }

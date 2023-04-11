@@ -46,29 +46,7 @@ public class saveManager : MonoBehaviour
         //manual save
         if (Input.GetKeyDown("r"))
         {
-            // reset save file
-            infoMang.funnyMoney = 0;
-            infoMang.clownCoins = 0;
-            infoMang.whimsy = 0;
-            state.funnyMoney = 0;
-            state.clownCoins = 0;
-            state.whimsy = 0;
-            tutorialMang.tutorialStep = 0;
-
-            foreach (Attraction a in infoMang.attractions)
-            {
-                a.unlocked = false;
-                a.inUse = false;
-            }
-
-            foreach (Clown c in infoMang.clowns)
-            {
-                c.unlocked = false;
-                c.working = false;
-                c.targetAttraction = Vector3.zero;
-            }
-
-            Save();
+            wipeSave();
         }
 
         if (managerCheck && GameObject.FindGameObjectWithTag("currManager") != null && GameObject.FindGameObjectWithTag("tutorialManager") != null)
@@ -202,5 +180,37 @@ public class saveManager : MonoBehaviour
             managerCheck = true;
             initialized = true;
         }
+    }
+
+    public void wipeSave()
+    {
+        // reset save file
+        infoMang.funnyMoney = 0;
+        infoMang.clownCoins = 0;
+        infoMang.whimsy = 0;
+        state.funnyMoney = 0;
+        state.clownCoins = 0;
+        state.whimsy = 0;
+        tutorialMang.tutorialStep = 0;
+        state.lastAdWatched = 0;
+        state.lastLoginTime = 0;
+        state.musicMute = false;
+        state.sfxMute = false;
+
+        foreach (Attraction a in infoMang.attractions)
+        {
+            a.unlocked = false;
+            a.inUse = false;
+            a.level = 1;
+        }
+
+        foreach (Clown c in infoMang.clowns)
+        {
+            c.unlocked = false;
+            c.working = false;
+            c.targetAttraction = Vector3.zero;
+        }
+
+        Save();
     }
 }

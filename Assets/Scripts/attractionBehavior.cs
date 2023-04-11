@@ -6,10 +6,13 @@ using UnityEngine;
 
 public class attractionBehavior : MonoBehaviour
 {
+    private infoManager infoMang;
+
     [SerializeField] string attractionName;
     public Attraction thisAttraction;
 
     public GameObject clownPos;
+    public GameObject workingClown;
     public GameObject attractionWalkPoint;
     public GameObject activeNPC;
 
@@ -35,7 +38,7 @@ public class attractionBehavior : MonoBehaviour
     void Start()
     {
 
-        infoManager infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
+        infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
         foreach (Attraction a in infoMang.attractions)
         {
             if (a.name == attractionName)
@@ -91,14 +94,14 @@ public class attractionBehavior : MonoBehaviour
 
             if(ticketTimer >= 1f)
             {
-                infoManager infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
                 infoMang.ticketIncrease(ticketOutput(level));
                 ticketTimer = 0;
             }
 
-            if (!thisAttraction.inUse)
+            if(workingClown == null || !thisAttraction.inUse)
             {
                 inUse = false;
+                thisAttraction.inUse = false;
             }
         }
     }
@@ -119,18 +122,11 @@ public class attractionBehavior : MonoBehaviour
 
     public void unlockAttraction()
     {
-        infoManager infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
         if (infoMang.funnyMoney >= unlockTicketCost && infoMang.clownCoins >= unlockCoinCost)
         {
             unlocked = true;
             lockIcon.SetActive(false);
-            foreach (Attraction a in infoMang.attractions)
-            {
-                if (a.name == attractionName)
-                {
-                    a.unlocked = true;
-                }
-            }
+            updateAttraction();
             gameObject.tag = "attraction";
             infoMang.funnyMoney -= unlockTicketCost;
             infoMang.clownCoins -= unlockCoinCost;
@@ -146,21 +142,14 @@ public class attractionBehavior : MonoBehaviour
 
     public void upgradeAttraction()
     {
-        infoManager infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
         if(infoMang.funnyMoney >= upgradeCost(level))
         {
-            level++;
             infoMang.funnyMoney -= upgradeCost(level);
+            level++;
             upgradeCostText.text = "" + upgradeCost(level);
             levelText.text = "" + level;
 
-            foreach (Attraction a in infoMang.attractions)
-            {
-                if (a.name == attractionName)
-                {
-                    a.level = level;
-                }
-            }
+            updateAttraction();
 
             FindObjectOfType<audioManager>().Play("upgrade");
         }
@@ -186,4 +175,38 @@ public class attractionBehavior : MonoBehaviour
         return newOutput;
     }
 
+    public void clownWorking(GameObject clown, bool isWorking)
+    {
+        if (isWorking)
+        {
+            if (!inUse)
+            {
+                workingClown = clown;
+                inUse = true;
+                thisAttraction.inUse = true;
+            }
+        }
+        else
+        {
+            workingClown = null;
+            inUse = false;
+            thisAttraction.inUse = false;
+        }
+
+        updateAttraction();
+    }
+
+    void updateAttraction()
+    {
+        foreach (Attraction a in infoMang.attractions)
+        {
+            if (a.name == attractionName)
+            {
+                a.level = level;
+                a.unlocked = unlocked;
+                a.inUse = inUse;
+                return;
+            }
+        }
+    }
 }

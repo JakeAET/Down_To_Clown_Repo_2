@@ -8,14 +8,26 @@ public class balloon : MonoBehaviour
     private tutorialManager tutorialMang;
 
     [SerializeField] float moveSpeed = 5f;
-
     [SerializeField] float frequency = 20f;
-
     [SerializeField] float magnitude = 0.5f;
+
+    [SerializeField] GameObject balloonSprite;
+    [SerializeField] TrailRenderer trail;
+
+    [SerializeField] GameObject[] popOutput;
+    private bool outputDone = false;
+
 
     private bool facingRight = true;
 
     Vector3 pos, localScale;
+
+    private void Awake()
+    {
+        //Color color = Random.ColorHSV(0f, 1f, 1f, 1f, 0.5f, 1f, 0.8f, 0.8f);
+        //balloonSprite.GetComponent<SpriteRenderer>().material.color = color;
+        //trail.startColor = color;
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -56,7 +68,7 @@ public class balloon : MonoBehaviour
 
         if (((facingRight) && (localScale.x < 0)) || ((!facingRight) && (localScale.x > 0)))
         {
-            localScale.x *= -1;
+            localScale.x *= 1;
         }
 
         transform.localScale = localScale;
@@ -76,10 +88,25 @@ public class balloon : MonoBehaviour
 
     public void popped()
     {
-        if (tutorialMang.step == tutorialManager.tutorial.Clicker2 && !tutorialMang.balloonPopped)
+        StartCoroutine(popRoutine());
+    }
+
+    IEnumerator popRoutine()
+    {
+        balloonSprite.SetActive(false);
+
+        if (tutorialMang.step == tutorialManager.tutorial.Clicker2 && !tutorialMang.balloonPopped && !outputDone)
         {
+            outputDone = true;
+            popOutput[3].SetActive(true);
+            popOutput[3].GetComponent<textEffect>().effectActive = true;
             currMang.whimsyIncrease(100);
             tutorialMang.balloonPop();
+
+            yield return new WaitForSeconds(3);
+            popOutput[3].GetComponent<textEffect>().reset();
+            popOutput[3].SetActive(false);
+            yield return null;
         }
         else
         {
@@ -92,36 +119,49 @@ public class balloon : MonoBehaviour
 
             //Debug.Log(randNum);
 
-            if (randNum >= 96 && randNum <= 100)
+            if (randNum >= 81 && randNum <= 100 && !outputDone)
             {
+                outputDone = true;
+                popOutput[2].SetActive(true);
+                popOutput[2].GetComponent<textEffect>().effectActive = true;
                 currMang.whimsyIncrease(50);
-                Debug.Log("+ 30 Whimsy");
+                Debug.Log("+ 50 Whimsy");
+
+                yield return new WaitForSeconds(3);
+                popOutput[2].GetComponent<textEffect>().reset();
+                popOutput[2].SetActive(false);
+                yield return null;
+
             }
-            else if (randNum >= 81 && randNum <= 95)
+            else if (randNum >= 31 && randNum <= 80 && !outputDone)
             {
-                currMang.multiplyerActive(3);
-                Debug.Log("3x Ticket Multiplyer");
-            }
-            else if (randNum >= 61 && randNum <= 80)
-            {
+                outputDone = true;
+                popOutput[1].SetActive(true);
+                popOutput[1].GetComponent<textEffect>().effectActive = true;
                 currMang.whimsyIncrease(20);
                 Debug.Log("+ 20 Whimsy");
+
+                yield return new WaitForSeconds(3);
+                popOutput[1].GetComponent<textEffect>().reset();
+                popOutput[1].SetActive(false);
+                yield return null;
             }
-            else if (randNum >= 31 && randNum <= 60)
+            else if (randNum >= 1 && randNum <= 30 && !outputDone)
             {
-                currMang.multiplyerActive(2);
-                Debug.Log("2x Ticket Multiplyer");
-            }
-            else if (randNum >= 1 && randNum <= 30)
-            {
+                outputDone = true;
+                popOutput[0].SetActive(true);
+                popOutput[0].GetComponent<textEffect>().effectActive = true;
                 currMang.whimsyIncrease(10);
                 Debug.Log("+ 10 Whimsy");
+
+                yield return new WaitForSeconds(3);
+                popOutput[0].GetComponent<textEffect>().reset();
+                popOutput[0].SetActive(false);
+                yield return null;
             }
         }
-
         // Spawn pop effect
-
-        Destroy(gameObject);
+        Destroy(gameObject, 3f);
     }
 
 }

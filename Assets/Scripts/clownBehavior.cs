@@ -8,6 +8,7 @@ public class clownBehavior : MonoBehaviour
     [SerializeField] string clownName;
     public Clown thisClown;
     private infoManager infoMang;
+    private attractionManager attractionMang;
 
     //Movement States
     public enum moveState
@@ -61,7 +62,8 @@ public class clownBehavior : MonoBehaviour
     public bool isWorking = false;
     private Vector3 attractionPos;
     public bool overOpenAttraction;
-    private GameObject lastHoveredAttraction;
+    public GameObject lastHoveredAttraction;
+    public GameObject currentAttraction;
 
     //Walk System
     private waypointManager waypointMang;
@@ -89,6 +91,7 @@ public class clownBehavior : MonoBehaviour
 
         infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
         waypointMang = GameObject.FindGameObjectWithTag("waypointManager").GetComponent<waypointManager>();
+        attractionMang = GameObject.FindGameObjectWithTag("attractionManager").GetComponent<attractionManager>();
 
         foreach (Clown c in infoMang.clowns)
         {
@@ -147,7 +150,13 @@ public class clownBehavior : MonoBehaviour
         if (dragActive)
         {
             dragTimer += Time.deltaTime;
-            isWorking = false;
+            //isWorking = false;
+        }
+
+        if(state != moveState.Working && isWorking || thisClown.working)
+        {
+            //Debug.Log("stopped working from 'state != moveState.Working && isWorking || thisClown.working'");
+            //stopWorking();
         }
 
         #region State Actions
@@ -156,11 +165,17 @@ public class clownBehavior : MonoBehaviour
             case moveState.Init:
                 if (thisClown.working)
                 {
-                    gameObject.transform.position = thisClown.targetAttraction;
-                    isWorking = true;
+                    foreach (GameObject a in attractionMang.attractionSprites)
+                    {
+                        if (thisClown.workingAttraction == a.name)
+                        {
+                            startWorking(a);
+                        }
+                    }
                 }
                 else
                 {
+                    isWorking = false;
                     float randX = Random.Range(minWalkX, maxWalkX);
                     float randY = Random.Range(minWalkY, maxWalkY);
                     gameObject.transform.position = new Vector2(randX, randY);
@@ -258,18 +273,25 @@ public class clownBehavior : MonoBehaviour
                 frontView.GetComponent<Animator>().SetBool("dragged", true);
                 backAnim = false;
                 frontAnim = true;
+                if(isWorking)
+                {
+                    Debug.Log("stopped working from the Grab state");
+                    stopWorking();
+                    overOpenAttraction = true;
+                }
                 //workingAnim = false;
                 break;
 
             case moveState.Dropped:
-                if (!overOpenAttraction)
+                currentAttraction = null;
+                if (verifyOpenBooth())
                 {
-                    snapToWalkPath();
-                    state = moveState.Idle;
+                    startWorking(lastHoveredAttraction);
                 }
                 else
                 {
-                    startWorking(lastHoveredAttraction);
+                    snapToWalkPath();
+                    state = moveState.Idle;
                 }
                 break;
 
@@ -336,18 +358,10 @@ public class clownBehavior : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag == "attraction")
+        if (collision.tag == "attraction" && state == moveState.Grabbed)
         {
-            isWorking = false;
-            thisClown.working = false;
             overOpenAttraction = false;
-            if (collision.gameObject == lastHoveredAttraction)
-            {
-                collision.gameObject.GetComponent<attractionBehavior>().inUse = false;
-                collision.gameObject.GetComponent<attractionBehavior>().thisAttraction.inUse = false;
-            }
-            lastHoveredAttraction = null;
-            updateClownInfo();
+            //lastHoveredAttraction = null;
         }
     }
 
@@ -435,15 +449,34 @@ public class clownBehavior : MonoBehaviour
 
     public void startWorking(GameObject targetAttraction)
     {
+        Debug.Log("Start Working");
         attractionBehavior a = targetAttraction.GetComponent<attractionBehavior>();
-        a.inUse = true;
-        a.thisAttraction.inUse = true;
+        a.clownWorking(this.gameObject, true);
         attractionPos = a.clownPos.transform.position;
         isWorking = true;
         dragActive = false;
         thisClown.working = true;
         thisClown.targetAttraction = a.clownPos.transform.position;
+        thisClown.workingAttraction = a.name;
+        currentAttraction = targetAttraction;
+        state = moveState.Working;
         updateClownInfo();
+    }
+
+    public void stopWorking()
+    {
+        if (isWorking)
+        {
+            Debug.Log("Stop Working");
+            attractionBehavior a = currentAttraction.GetComponent<attractionBehavior>();
+            a.clownWorking(this.gameObject, false);
+            attractionPos = Vector3.zero;
+            thisClown.targetAttraction = Vector3.zero;
+            thisClown.workingAttraction = "";
+            thisClown.working = false;
+            isWorking = false;
+            updateClownInfo();
+        }
     }
 
     public void dragStart()
@@ -483,6 +516,25 @@ public class clownBehavior : MonoBehaviour
         dragActive = false;
     }
 
+    public bool verifyOpenBooth()
+    {
+        if(lastHoveredAttraction != null)
+        {
+            if (overOpenAttraction && lastHoveredAttraction.GetComponent<attractionBehavior>().inUse == false)
+            {
+                Debug.Log(lastHoveredAttraction.name + " not in use, returning true");
+                return true;
+            }
+            else
+            {
+                Debug.Log(lastHoveredAttraction.name + " in use, returning false");
+                return false;
+            }
+        }
+        Debug.Log("no lastHovered");
+        return false;
+    }
+
     float randTime(float min, float max) // determine a random time within parameters
     {
         float rand = Random.Range(min, max);
@@ -513,13 +565,11 @@ public class clownBehavior : MonoBehaviour
         {
             if(c.name == thisClown.name)
             {
+                infoMang.clowns[targetClown] = thisClown;
                 return;
             }
-
             targetClown++;
         }
-
-        infoMang.clowns[targetClown] = thisClown;
     }
 
     #region State Switch Conditions
@@ -576,8 +626,7 @@ public class clownBehavior : MonoBehaviour
                     state = moveState.Dropped;
                 break;
             case moveState.Dropped:
-                if (isWorking)
-                    state = moveState.Working;
+
                 break;
 
             case moveState.Working:

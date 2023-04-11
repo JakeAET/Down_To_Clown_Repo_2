@@ -23,6 +23,8 @@ TagManager:
   - tutorialManager
   - saveManager
   - clownManager
+  - Background
+  - attractionManager
   layers:
   - Default
   - TransparentFX

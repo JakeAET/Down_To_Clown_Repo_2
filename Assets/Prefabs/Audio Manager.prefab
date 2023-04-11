@@ -62,25 +62,17 @@ MonoBehaviour:
     sfx: 1
     source: {fileID: 0}
   - name: main screen
-    clip: {fileID: 8300000, guid: 86352466311dd42619f7e3bff8ee4789, type: 3}
-    volume: 0.5
-    pitch: 1.5
+    clip: {fileID: 8300000, guid: c3a5b478ba5e76b41b113a8efe3f718d, type: 3}
+    volume: 0.35
+    pitch: 1
     loop: 1
     music: 1
     sfx: 0
     source: {fileID: 0}
   - name: home screen
-    clip: {fileID: 8300000, guid: 637c40c2ae511468099bca81dbb8858b, type: 3}
+    clip: {fileID: 8300000, guid: 288764261d9d35842af4536fecbccf03, type: 3}
     volume: 0.2
-    pitch: 1.5
-    loop: 1
-    music: 1
-    sfx: 0
-    source: {fileID: 0}
-  - name: home screen
-    clip: {fileID: 8300000, guid: 637c40c2ae511468099bca81dbb8858b, type: 3}
-    volume: 1
-    pitch: 1.5
+    pitch: 1
     loop: 1
     music: 1
     sfx: 0
@@ -125,5 +117,15 @@ MonoBehaviour:
     music: 0
     sfx: 1
     source: {fileID: 0}
+  - name: quiet ui
+    clip: {fileID: 8300000, guid: 0cc8e37e2b3de43b0b154c4dfdaadea7, type: 3}
+    volume: 0.3
+    pitch: 1.5
+    loop: 0
+    music: 0
+    sfx: 1
+    source: {fileID: 0}
   home: 0
   main: 1
+  sfxMute: 0
+  musicMute: 0

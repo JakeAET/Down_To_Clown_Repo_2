@@ -98,15 +98,6 @@ public class infoManager : MonoBehaviour
                 c.ID = "C" + commonClowns;
             }
 
-            if (c.unlocked)
-            {
-                GameObject.FindGameObjectWithTag("clownManager").GetComponent<clownManager>().clownSprites[i].SetActive(true);
-            }
-            else
-            {
-                GameObject.FindGameObjectWithTag("clownManager").GetComponent<clownManager>().clownSprites[i].SetActive(false);
-            }
-
             i++;
         }
     }

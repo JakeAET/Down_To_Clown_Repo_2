@@ -113,7 +113,7 @@ public class currencyManager : MonoBehaviour
 
         tapTimer = 0;
 
-        //Debug.Log(tapMeter);
+        Debug.Log(tapMeter);
     }
 
     public void clownCoinIncrease(int num)

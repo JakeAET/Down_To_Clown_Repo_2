@@ -974,7 +974,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &694616694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1997,17 +1997,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664493164}
   m_CullTransparentMesh: 1
---- !u!114 &1731535157 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
-  m_PrefabInstance: {fileID: 1878787700}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffaf2b0a52caf40ed92956497775da0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1731567931
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2015,6 +2004,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: clowns.Array.data[0].unlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[0].targetClown
       value: Ooh LaLa
@@ -2025,11 +2018,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[2].targetClown
-      value: Fabriege
+      value: Klep
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[3].targetClown
-      value: Klep
+      value: Doinko
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[4].targetClown
@@ -2037,7 +2030,167 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[5].targetClown
-      value: Doinko
+      value: Popette
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[6].targetClown
+      value: Bibby
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[7].targetClown
+      value: Quidge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[8].targetClown
+      value: Fabriege
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[9].targetClown
+      value: Gerty
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[10].targetClown
+      value: Cheesecake
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[11].targetClown
+      value: Belphebub
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[1].unlockCoinCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[2].unlockCoinCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[3].unlockCoinCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[4].unlockCoinCost
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[5].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[6].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[7].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[8].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[9].unlockCoinCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[10].unlockCoinCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[11].unlockCoinCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[0].ticketProduction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[1].ticketProduction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[1].unlockTicketCost
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[2].ticketProduction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[2].unlockTicketCost
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[3].ticketProduction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[3].unlockTicketCost
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[4].ticketProduction
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[4].unlockTicketCost
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[5].ticketProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[5].unlockTicketCost
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[6].ticketProduction
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[6].unlockTicketCost
+      value: 60000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[7].ticketProduction
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[7].unlockTicketCost
+      value: 70000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[8].ticketProduction
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[8].unlockTicketCost
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[9].ticketProduction
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[9].unlockTicketCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[10].ticketProduction
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[10].unlockTicketCost
+      value: 200000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[11].ticketProduction
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[11].unlockTicketCost
+      value: 300000
       objectReference: {fileID: 0}
     - target: {fileID: 4081577647740790165, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: m_RootOrder
@@ -2161,6 +2314,7 @@ GameObject:
   - component: {fileID: 1911429727}
   - component: {fileID: 1911429729}
   - component: {fileID: 1911429728}
+  - component: {fileID: 1911429730}
   m_Layer: 5
   m_Name: Start
   m_TagString: Untagged
@@ -2185,7 +2339,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 108}
+  m_AnchoredPosition: {x: 0, y: 0.039916992}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1911429728
@@ -2232,18 +2386,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1731535157}
-        m_TargetAssemblyTypeName: saveManager, Assembly-CSharp
-        m_MethodName: sceneChanger
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: Game Screen
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1958266354}
         m_TargetAssemblyTypeName: audioManager, Assembly-CSharp
         m_MethodName: Play
@@ -2256,6 +2398,18 @@ MonoBehaviour:
           m_StringArgument: ui
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1911429730}
+        m_TargetAssemblyTypeName: sceneChanger, Assembly-CSharp
+        m_MethodName: changeScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Game Screen
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!222 &1911429729
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2264,6 +2418,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911429726}
   m_CullTransparentMesh: 1
+--- !u!114 &1911429730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911429726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 15b307afc90d546e7a717ef4d0ad3c60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1928393987
 GameObject:
   m_ObjectHideFlags: 0

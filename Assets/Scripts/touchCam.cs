@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class touchCam : MonoBehaviour
 {
@@ -86,7 +87,7 @@ public class touchCam : MonoBehaviour
             {
                 dragActive = dragManager.GetComponent<Dragging>().isDragging;
 
-                if (dragActive == false)
+                if (dragActive == false && !TouchOnClicker())
                 {
                     Vector3 direction = touchStart - GetWorldPosition(0);
                     cam.transform.position = ClampCamera(cam.transform.position + direction);
@@ -95,7 +96,7 @@ public class touchCam : MonoBehaviour
             }
 
             //camera zoom
-            if (Input.touchCount == 2)
+            if (Input.touchCount == 2 && !TouchOnClicker())
             {
                 Touch touchZero = Input.GetTouch(0);
                 Touch touchOne = Input.GetTouch(1);
@@ -114,7 +115,7 @@ public class touchCam : MonoBehaviour
             {
                 dragActive = dragManager.GetComponent<Dragging>().isDragging;
 
-                if (dragActive == false)
+                if (dragActive == false && !TouchOnClicker())
                 {
                     Vector3 direction = touchStart - Camera.main.ScreenToWorldPoint(Input.mousePosition);
                     Camera.main.transform.position += direction;
@@ -247,5 +248,24 @@ public class touchCam : MonoBehaviour
             zoomTimer = 0;
             presetZooming = true;
         }
+    }
+
+    public bool TouchOnClicker()//if touch phase ends on this button 
+    {                               //than the function will return true .
+        if(Input.touchCount > 0)
+        {
+            PointerEventData eventDataCurrentPosition = new PointerEventData(EventSystem.current);
+            eventDataCurrentPosition.position = new Vector2(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+            List<RaycastResult> results = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+            if (results.Count > 0)
+            {
+                if (results[0].gameObject.name.Equals("Clicker"))
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
     }
 }

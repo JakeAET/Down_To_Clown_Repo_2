@@ -11,4 +11,5 @@ public class Clown
     public bool working;
     public string workingAttraction; // where the clown is working, if applicable
     public string ID;
+    public int unlockedInfo;
 }

@@ -100,9 +100,11 @@ public class tutorialManager : MonoBehaviour
         cam = GameObject.FindGameObjectWithTag("touchCam").GetComponent<touchCam>();
 
         // Restricted button default state
+        build.interactable = false;
+        ads.interactable = false;
         book.interactable = false;
         tent.interactable = false;
-        settings.interactable = false;
+        settings.interactable = true;
 
         // Arrow default state
         unlockArrow.SetActive(false);
@@ -121,7 +123,7 @@ public class tutorialManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && tutorialStep > 7)
         {
             advanceTutorial();
         }
@@ -232,13 +234,13 @@ public class tutorialManager : MonoBehaviour
                 if (Input.GetMouseButtonDown(0) && dialogueStep == 0 && textFinished)
                 {
                     nextDialogue();
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, -149, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 355, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.bottomBar(true);
                 }
                 if (dialogueStep == 1 && infoMang.funnyMoney >= 1000 && textFinished)
                 {
                     nextDialogue();
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, -513, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
                     uiMang.bottomBar(false);
                     currentArrow = unlockArrow;
                     arrowActive = true;
@@ -282,7 +284,7 @@ public class tutorialManager : MonoBehaviour
 
                 if (Input.GetMouseButtonDown(0) && dialogueStep == 0 && textFinished)
                 {
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, -149, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 355, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.bottomBar(true);
                     nextDialogue();
                 }
@@ -292,7 +294,7 @@ public class tutorialManager : MonoBehaviour
                 }
                 if (dialogueStep == 2 && ticketGoalReached && textFinished)
                 {
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, -513, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
                     uiMang.bottomBar(false);
                     nextCam();
                     nextDialogue();
@@ -305,14 +307,14 @@ public class tutorialManager : MonoBehaviour
             case tutorial.Whimsy: // step 3 - Noting whimsy increase, tapping tent button to go to tent
                 if (initializeTutorial)
                 {
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, -149, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 0, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     currentArrow = tentArrow;
                     arrowActive = true;
                     initializeTutorial = false;
                 }
                 else if (initializeStep)
                 {
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, -149, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.bottomBar(true);
                     cam.zoomLockCam(currentStep.camPreset[0]);
                     currentArrow = tentArrow;
@@ -331,14 +333,14 @@ public class tutorialManager : MonoBehaviour
                 if (initializeTutorial)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 387, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.summon(true);
                     initializeTutorial = false;
                 }
                 else if (initializeStep)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 387, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.summon(true);
                     initializeStep = false;
                 }
@@ -361,7 +363,7 @@ public class tutorialManager : MonoBehaviour
                 if (initializeTutorial)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 387, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.bottomBar(false);
                     initializeTutorial = false;
                 }
@@ -388,7 +390,7 @@ public class tutorialManager : MonoBehaviour
                 if (initializeTutorial)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 387, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     cam.zoomLockCam(currentStep.camPreset[0]);
                     uiMang.bottomBar(false);
                     initializeTutorial = false;
@@ -485,47 +487,59 @@ public class tutorialManager : MonoBehaviour
         if (tutorialStep == 0)
         {
             step = tutorial.Intro;
+            settings.interactable = true;
         }
         else if (tutorialStep == 1)
         {
             step = tutorial.Clicker1;
+            settings.interactable = true;
         }
         else if (tutorialStep == 2)
         {
             step = tutorial.Clicker2;
+            settings.interactable = true;
         }
         else if (tutorialStep == 3)
         {
             tent.interactable = true;
+            settings.interactable = true;
             step = tutorial.Whimsy;
         }
         else if (tutorialStep == 4)
         {
             tent.interactable = true;
+            settings.interactable = true;
             step = tutorial.Summon1;
         }
         else if (tutorialStep == 5)
         {
             tent.interactable = true;
             summon.interactable = true;
+            settings.interactable = true;
             step = tutorial.Summon2;
         }
         else if (tutorialStep == 6)
         {
             tent.interactable = true;
             summon.interactable = true;
+            settings.interactable = true;
             step = tutorial.Working;
         }
         else if (tutorialStep == 7)
         {
             book.interactable = true;
             tent.interactable = true;
-            build.interactable = true;
+            //build.interactable = true;
             ads.interactable = true;
             summon.interactable = true;
             exitSummon.interactable = true;
             settings.interactable = true;
             ringmasterUI.SetActive(false);
+            unlockArrow.SetActive(false);
+            tentArrow.SetActive(false);
+            summonArrow.SetActive(false);
+            placementArrow.SetActive(false);
+            cam.zoomLockCam("default");
             step = tutorial.Complete;
         }
     }

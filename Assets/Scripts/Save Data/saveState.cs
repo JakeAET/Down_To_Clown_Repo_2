@@ -16,8 +16,8 @@ public class saveState
     public int whimsy;
 
     //Audio Manager
-    public bool sfxMute = true;
-    public bool musicMute = true;
+    public bool sfxMute = false;
+    public bool musicMute = false;
 
     //Tutorial
     public int tutorialStep;
