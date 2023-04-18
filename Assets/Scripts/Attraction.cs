@@ -14,4 +14,7 @@ public class Attraction
     public int unlockCoinCost;
     public int upgradeCost;
     public int ticketProduction;
+    public int whimsyMeterProgress;
+    public int whimsyProduction;
+    public bool ticketBonus = false;
 }

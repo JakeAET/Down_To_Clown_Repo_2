@@ -25,6 +25,8 @@ TagManager:
   - clownManager
   - Background
   - attractionManager
+  - whimsyCounter
+  - ticketCounter
   layers:
   - Default
   - TransparentFX
@@ -35,7 +37,7 @@ TagManager:
   - 
   - Boundaries
   - Draggable
-  - 
+  - ParticleEffect
   - 
   - 
   - 

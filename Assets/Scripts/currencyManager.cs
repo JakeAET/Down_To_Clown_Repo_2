@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
 using TMPro;
+using System;
+using System.Globalization;
+using System.Runtime.InteropServices.ComTypes;
 
 
 public class currencyManager : MonoBehaviour
@@ -11,6 +14,7 @@ public class currencyManager : MonoBehaviour
 
     private infoManager infoMang;
     private tutorialManager tutorialMang;
+    private attractionManager attractionMang;
 
     [SerializeField] TextMeshProUGUI ticketText;
     [SerializeField] TextMeshProUGUI coinText;
@@ -33,6 +37,13 @@ public class currencyManager : MonoBehaviour
     [SerializeField] int minY;
     [SerializeField] int edgeX;
 
+    // Idle Currency
+    [SerializeField] GameObject welcomePopup;
+    [SerializeField] Text welcomeText;
+    private int ticketsToClaim;
+
+    private RenderTexture renderTexture;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -44,6 +55,8 @@ public class currencyManager : MonoBehaviour
         {
             Instance = this;
         }
+
+        welcomePopup.SetActive(false);
     }
 
     // Start is called before the first frame update
@@ -51,15 +64,16 @@ public class currencyManager : MonoBehaviour
     {
         infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
         tutorialMang = GameObject.FindGameObjectWithTag("tutorialManager").GetComponent<tutorialManager>();
+        attractionMang = GameObject.FindGameObjectWithTag("attractionManager").GetComponent<attractionManager>();
         tapMeterUI.maxValue = tapGoal;
     }
 
     // Update is called once per frame
     void Update()
     {
-        ticketText.text = "" + infoMang.funnyMoney;
-        coinText.text = "" + infoMang.clownCoins;
-        whimsyText.text = "" + infoMang.whimsy;
+        ticketText.text = "" + formatNumber(infoMang.funnyMoney);
+        coinText.text = "" + formatNumber(infoMang.clownCoins);
+        whimsyText.text = "" + formatNumber(infoMang.whimsy);
 
         if (tapTimer < 2)
         {
@@ -94,6 +108,7 @@ public class currencyManager : MonoBehaviour
     public void hornClick()
     {
         infoMang.ticketIncrease(10 * multiplyer);
+        infoMang.clickerTicketFlex();
 
         if(tapMeter < tapGoal)
         {
@@ -136,7 +151,7 @@ public class currencyManager : MonoBehaviour
 
     private void tapGoalReached()
     {
-        int randSide = Random.Range(0,2);
+        int randSide = UnityEngine.Random.Range(0,2);
         int side = edgeX;
 
         if(randSide == 0)
@@ -144,7 +159,7 @@ public class currencyManager : MonoBehaviour
             side = edgeX * -1;
         }
 
-        int randHeight = Random.Range(minY, maxY);
+        int randHeight = UnityEngine.Random.Range(minY, maxY);
 
         Vector3 spawnPoint = new Vector3(side, randHeight, 0);
 
@@ -182,7 +197,23 @@ public class currencyManager : MonoBehaviour
         {
             if (a.inUse)
             {
-                totalTickets += (a.level * a.ticketProduction * secondsPassed);
+                if (a.ticketBonus)
+                {
+                    totalTickets += (Mathf.RoundToInt(a.level * a.ticketProduction * 1.2f) * secondsPassed);
+                }
+                else
+                {
+                    totalTickets += (a.level * a.ticketProduction * secondsPassed);
+                }
+
+                foreach (GameObject g in attractionMang.attractionSprites)
+                {
+                    attractionBehavior script = g.GetComponent<attractionBehavior>();
+                    if (script.thisAttraction.name == a.name)
+                    {
+                        script.idleWhimsyProgress(secondsCounted);
+                    }
+                }
             }
         }
 
@@ -195,7 +226,24 @@ public class currencyManager : MonoBehaviour
             Debug.Log("Time difference since last login: " + formatTime(secondsPassed) + ". Tickets gained: " + totalTickets);
         }
 
-        infoMang.ticketIncrease(totalTickets);
+        if(totalTickets > 0)
+        {
+            welcomeText.text = "Your clowns earned <i><color=white>" + formatNumber(totalTickets) + " tickets</color></i> while you were away!";
+            welcomePopup.SetActive(true);
+        }
+        else
+        {
+            welcomePopup.SetActive(false);
+        }
+
+        ticketsToClaim = totalTickets;
+    }
+
+    public void claimTickets()
+    {
+        infoMang.ticketIncrease(ticketsToClaim);
+        ticketsToClaim = 0;
+        welcomePopup.SetActive(false);
     }
 
     private string formatTime(float rawTime) // function called to convert timer's raw int value into usable timer strings
@@ -210,4 +258,33 @@ public class currencyManager : MonoBehaviour
         return output;
     }
 
+    private string formatNumber(float rawNum)
+    {
+        double dNum = (double)rawNum;
+
+        if (dNum > 999999999999999 || dNum < -999999999999999)
+        {
+            return dNum.ToString("0,,,,,.#####Q", CultureInfo.InvariantCulture);
+        }
+        else if (dNum > 999999999999 || dNum < -999999999999)
+        {
+            return dNum.ToString("0,,,,.####T", CultureInfo.InvariantCulture);
+        }
+        else if (dNum > 999999999 || dNum < -999999999)
+        {
+            return dNum.ToString("0,,,.###B", CultureInfo.InvariantCulture);
+        }
+        else if (dNum > 999999 || dNum < -999999)
+        {
+            return dNum.ToString("0,,.##M", CultureInfo.InvariantCulture);
+        }
+        else if (rawNum == 0)
+        {
+            return "0";
+        }
+        else
+        {
+            return dNum.ToString("#,#", CultureInfo.InvariantCulture);
+        }
+    }
 }

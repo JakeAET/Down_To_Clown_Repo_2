@@ -83,8 +83,7 @@ public class clownBehavior : MonoBehaviour
     private bool summonInit = true;
     public bool walkToPath = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         col = GetComponent<Collider2D>();
         dragControl = FindObjectOfType<Dragging>();
@@ -95,13 +94,17 @@ public class clownBehavior : MonoBehaviour
 
         foreach (Clown c in infoMang.clowns)
         {
-            if(c.name == clownName)
+            if (c.name == clownName)
             {
                 thisClown = c;
             }
         }
         attractionPos = thisClown.targetAttraction;
+    }
 
+    // Start is called before the first frame update
+    void Start()
+    {
         spriteRendererBack = backView.GetComponent<SpriteRenderer>();
         spriteRendererFront = frontView.GetComponent<SpriteRenderer>();
         //spriteRendererWorking = workingView.GetComponent<SpriteRenderer>();
@@ -544,7 +547,10 @@ public class clownBehavior : MonoBehaviour
     void directionAnim()
     {
         frontView.GetComponent<Animator>().SetBool("dragged", false);
-
+        if(currentTarget == null)
+        {
+            findTargetWaypoint();
+        }
         if (transform.position.y < currentTarget.transform.position.y)
         {
             backAnim = true;

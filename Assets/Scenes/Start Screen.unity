@@ -2013,6 +2013,10 @@ PrefabInstance:
       value: Ooh LaLa
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[0].upgradeCost
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[1].targetClown
       value: Balla Pitta
       objectReference: {fileID: 0}
@@ -2055,6 +2059,10 @@ PrefabInstance:
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[11].targetClown
       value: Belphebub
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[8].increaseRate
+      value: 1.12
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[1].unlockCoinCost
@@ -2105,12 +2113,24 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[0].unlockTicketCost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[0].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[1].ticketProduction
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[1].unlockTicketCost
       value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[1].whimsyProduction
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[2].ticketProduction
@@ -2121,12 +2141,20 @@ PrefabInstance:
       value: 15000
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[2].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[3].ticketProduction
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[3].unlockTicketCost
       value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[3].whimsyProduction
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[4].ticketProduction
@@ -2137,12 +2165,20 @@ PrefabInstance:
       value: 25000
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[4].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[5].ticketProduction
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[5].unlockTicketCost
       value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[5].whimsyProduction
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[6].ticketProduction
@@ -2153,12 +2189,20 @@ PrefabInstance:
       value: 60000
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[6].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[7].ticketProduction
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[7].unlockTicketCost
       value: 70000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[7].whimsyProduction
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[8].ticketProduction
@@ -2169,12 +2213,20 @@ PrefabInstance:
       value: 80000
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[8].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[9].ticketProduction
       value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[9].unlockTicketCost
       value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[9].whimsyProduction
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[10].ticketProduction
@@ -2185,12 +2237,20 @@ PrefabInstance:
       value: 200000
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[10].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[11].ticketProduction
       value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: attractions.Array.data[11].unlockTicketCost
       value: 300000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3522389044941145091, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
+      propertyPath: attractions.Array.data[11].whimsyProduction
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4081577647740790165, guid: bf51a8aaddcfe43ed84127ad5b18ce0e, type: 3}
       propertyPath: m_RootOrder
@@ -2256,6 +2316,526 @@ PrefabInstance:
     - target: {fileID: 3746250611505770994, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
       propertyPath: m_Name
       value: Save Manager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.size
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[0].name
+      value: Ooh LaLa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[1].name
+      value: Balla Pitta
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[2].name
+      value: Klep
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[3].name
+      value: Doinko
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[4].name
+      value: Gimble
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[5].name
+      value: Popette
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[6].name
+      value: Bibby
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[7].name
+      value: Quidge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[8].name
+      value: Fabriege
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[9].name
+      value: Gerty
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[10].name
+      value: Cheesecake
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[11].name
+      value: Belphebub
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[0].rarity
+      value: common
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[1].rarity
+      value: common
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[2].rarity
+      value: common
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[3].rarity
+      value: common
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[4].rarity
+      value: common
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[5].rarity
+      value: uncommon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[6].rarity
+      value: uncommon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[7].rarity
+      value: uncommon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[8].rarity
+      value: uncommon
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[9].rarity
+      value: rare
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[10].rarity
+      value: rare
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultClowns.Array.data[11].rarity
+      value: rare
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].name
+      value: Bake Sale
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].name
+      value: Ball Pit
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].name
+      value: Painting
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].name
+      value: Magicians
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].name
+      value: Juggling
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].name
+      value: Fireworks
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].name
+      value: Buffoonery
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].name
+      value: Cat Time
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].name
+      value: Unicycle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].name
+      value: Strength
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].name
+      value: Balloons
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].name
+      value: Jail
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].targetClown
+      value: Ooh LaLa
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].upgradeCost
+      value: 750
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].targetClown
+      value: Balla Pitta
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].upgradeCost
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].targetClown
+      value: Klep
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].upgradeCost
+      value: 1500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].targetClown
+      value: Doinko
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].upgradeCost
+      value: 2000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].targetClown
+      value: Gimble
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].upgradeCost
+      value: 2500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].targetClown
+      value: Popette
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].upgradeCost
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].targetClown
+      value: Bibby
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].upgradeCost
+      value: 4000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].targetClown
+      value: Quidge
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].upgradeCost
+      value: 5000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].targetClown
+      value: Fabriege
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].upgradeCost
+      value: 5500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].targetClown
+      value: Gerty
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].upgradeCost
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].increaseRate
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].targetClown
+      value: Cheesecake
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].upgradeCost
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].targetClown
+      value: Belphebub
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].upgradeCost
+      value: 30000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].increaseRate
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].increaseRate
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].increaseRate
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].increaseRate
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].increaseRate
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].increaseRate
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].increaseRate
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].increaseRate
+      value: 1.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].increaseRate
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].increaseRate
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].increaseRate
+      value: 1.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].unlockCoinCost
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].unlockCoinCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].unlockCoinCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].unlockCoinCost
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].ticketProduction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].unlockTicketCost
+      value: 500
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[0].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].ticketProduction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].unlockTicketCost
+      value: 10000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[1].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].ticketProduction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].unlockTicketCost
+      value: 15000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[2].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].ticketProduction
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].unlockTicketCost
+      value: 20000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].ticketProduction
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].unlockTicketCost
+      value: 25000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[4].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].ticketProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].unlockTicketCost
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[5].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].ticketProduction
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].unlockTicketCost
+      value: 60000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[6].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].ticketProduction
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].unlockTicketCost
+      value: 70000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[7].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].ticketProduction
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].unlockTicketCost
+      value: 80000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[8].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].ticketProduction
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].unlockTicketCost
+      value: 100000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[9].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].ticketProduction
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].unlockTicketCost
+      value: 200000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[10].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].ticketProduction
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].unlockTicketCost
+      value: 300000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[11].whimsyProduction
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3746250611505770995, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
+      propertyPath: defaultAttractions.Array.data[3].whimsyMeterProgress
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3746250611505770996, guid: 2efd4b67cb2264433ba28ac2033f4d1a, type: 3}
       propertyPath: m_RootOrder

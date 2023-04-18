@@ -35,6 +35,8 @@ public class touchCam : MonoBehaviour
     private zoomPreset currentPreset;
     private GameObject followTarget;
 
+    private uiManager uiMang;
+
     private void Awake()
     {
         void Awake()
@@ -64,6 +66,7 @@ public class touchCam : MonoBehaviour
     private void Start()
     {
         dragManager = GameObject.FindGameObjectWithTag("dragManager");
+        uiMang = GameObject.FindGameObjectWithTag("uiManager").GetComponent<uiManager>();
     }
 
     void Update()
@@ -83,7 +86,7 @@ public class touchCam : MonoBehaviour
             }
 
             // camera panning
-            if (Input.GetMouseButton(0))
+            if (Input.GetMouseButton(0) && !presetZooming)
             {
                 dragActive = dragManager.GetComponent<Dragging>().isDragging;
 
@@ -228,6 +231,7 @@ public class touchCam : MonoBehaviour
     {
         if (!presetZooming)
         {
+            uiMang.settings(false);
             currentPresetName = presetName;
 
             foreach (zoomPreset z in zoomPresets)

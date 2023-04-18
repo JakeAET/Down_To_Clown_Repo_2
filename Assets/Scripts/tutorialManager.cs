@@ -78,6 +78,8 @@ public class tutorialManager : MonoBehaviour
     [SerializeField] Button exitSummon;
     [SerializeField] Button settings;
 
+    private bool initStateDetermined = false;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -104,6 +106,8 @@ public class tutorialManager : MonoBehaviour
         ads.interactable = false;
         book.interactable = false;
         tent.interactable = false;
+        summon.interactable = false;
+        exitSummon.interactable = false;
         settings.interactable = true;
 
         // Arrow default state
@@ -196,16 +200,16 @@ public class tutorialManager : MonoBehaviour
         switch (step)
         {
             case tutorial.Intro: // step 0 - Introduces circus
-                if (initializeTutorial)
+                if (initializeTutorial && initStateDetermined)
                 {
                     waitingForTap = true;
-                    uiMang.bottomBar(false);
+                    uiMang.bottomInstant(false, "Intro tutorial init");
                     initializeTutorial = false;
                 }
                 else if (initializeStep)
                 {
-                    waitingForTap = true;
-                    uiMang.bottomBar(false);
+                    //waitingForTap = true;
+                    //uiMang.bottomInstant(false, "Intro step init");
                     initializeStep = false;
                 }
 
@@ -217,10 +221,10 @@ public class tutorialManager : MonoBehaviour
 
                 break;
             case tutorial.Clicker1: // step 1 - Click horn, earn tickets, buy attraction
-                if (initializeTutorial)
+                if (initializeTutorial && initStateDetermined)
                 {
                     waitingForTap = true;
-                    uiMang.bottomBar(false);
+                    uiMang.bottomInstant(false, "Clicker1 tutorial init");
                     cam.zoomLockCam(currentStep.camPreset[0]);
                     initializeTutorial = false;
                 }
@@ -237,7 +241,7 @@ public class tutorialManager : MonoBehaviour
                     LeanTween.moveLocal(ringmasterUI, new Vector3(0, 355, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.bottomBar(true);
                 }
-                if (dialogueStep == 1 && infoMang.funnyMoney >= 1000 && textFinished)
+                if (dialogueStep == 1 && infoMang.funnyMoney >= 500 && textFinished)
                 {
                     nextDialogue();
                     LeanTween.moveLocal(ringmasterUI, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
@@ -268,10 +272,10 @@ public class tutorialManager : MonoBehaviour
                 }
                 break;
             case tutorial.Clicker2: // step 2 - Fill up the tap meter and pop the balloon
-                if (initializeTutorial)
+                if (initializeTutorial && initStateDetermined)
                 {
                     waitingForTap = true;
-                    uiMang.bottomBar(false);
+                    uiMang.bottomInstant(false, "Clicker2 tutorial init");
                     cam.zoomLockCam(currentStep.camPreset[0]);
                     initializeTutorial = false;
                 }
@@ -305,7 +309,7 @@ public class tutorialManager : MonoBehaviour
                 }
                 break;
             case tutorial.Whimsy: // step 3 - Noting whimsy increase, tapping tent button to go to tent
-                if (initializeTutorial)
+                if (initializeTutorial && initStateDetermined)
                 {
                     LeanTween.moveLocal(ringmasterUI, new Vector3(0, 0, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     currentArrow = tentArrow;
@@ -314,7 +318,7 @@ public class tutorialManager : MonoBehaviour
                 }
                 else if (initializeStep)
                 {
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 950, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.bottomBar(true);
                     cam.zoomLockCam(currentStep.camPreset[0]);
                     currentArrow = tentArrow;
@@ -330,40 +334,44 @@ public class tutorialManager : MonoBehaviour
                 }
                 break;
             case tutorial.Summon1: // step 4 - Tapping the summon button
-                if (initializeTutorial)
+                if (initializeTutorial && initStateDetermined)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 950, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.summon(true);
                     initializeTutorial = false;
                 }
                 else if (initializeStep)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 950, 0), 0.5f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.summon(true);
                     initializeStep = false;
                 }
                 if(Input.GetMouseButtonDown(0) && dialogueStep == 0 && textFinished)
                 {
+                    nextDialogue();
+                }
+                if(dialogueStep == 1 && textFinished)
+                {
                     summon.interactable = true;
                     currentArrow = summonArrow;
                     arrowActive = true;
-                    nextDialogue();
-                }
-                if (summonClicked && dialogueStep == 1 && textFinished)
-                {
-                    currentArrow.SetActive(false);
-                    arrowActive = false;
-                    nextDialogue();
+
+                    if (summonClicked)
+                    {
+                        currentArrow.SetActive(false);
+                        arrowActive = false;
+                        nextDialogue();
+                    }
                 }
 
                 break;
             case tutorial.Summon2: // step 5 - Following the clown with the camera
-                if (initializeTutorial)
+                if (initializeTutorial && initStateDetermined)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 950, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     uiMang.bottomBar(false);
                     initializeTutorial = false;
                 }
@@ -387,10 +395,10 @@ public class tutorialManager : MonoBehaviour
 
                 break;
             case tutorial.Working: // step 6 - Drag clown to attraction;
-                if (initializeTutorial)
+                if (initializeTutorial && initStateDetermined)
                 {
                     waitingForTap = true;
-                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 1100, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
+                    LeanTween.moveLocal(ringmasterUI, new Vector3(0, 950, 0), 0.1f).setEase(LeanTweenType.easeOutCubic);
                     cam.zoomLockCam(currentStep.camPreset[0]);
                     uiMang.bottomBar(false);
                     initializeTutorial = false;
@@ -513,15 +521,13 @@ public class tutorialManager : MonoBehaviour
         }
         else if (tutorialStep == 5)
         {
-            tent.interactable = true;
-            summon.interactable = true;
+            tent.interactable = false;
             settings.interactable = true;
             step = tutorial.Summon2;
         }
         else if (tutorialStep == 6)
         {
-            tent.interactable = true;
-            summon.interactable = true;
+            tent.interactable = false;
             settings.interactable = true;
             step = tutorial.Working;
         }
@@ -531,7 +537,6 @@ public class tutorialManager : MonoBehaviour
             tent.interactable = true;
             //build.interactable = true;
             ads.interactable = true;
-            summon.interactable = true;
             exitSummon.interactable = true;
             settings.interactable = true;
             ringmasterUI.SetActive(false);
@@ -540,7 +545,13 @@ public class tutorialManager : MonoBehaviour
             summonArrow.SetActive(false);
             placementArrow.SetActive(false);
             cam.zoomLockCam("default");
+            //uiMang.bottomInstant(true);
             step = tutorial.Complete;
+        }
+
+        if(initStateDetermined == false)
+        {
+            initStateDetermined = true;
         }
     }
 

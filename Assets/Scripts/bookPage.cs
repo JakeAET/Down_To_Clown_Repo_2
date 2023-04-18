@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class bookPage : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class bookPage : MonoBehaviour
     [SerializeField] Button[] chapters;
     [SerializeField] GameObject[] locks;
     [SerializeField] GameObject purchasePrompt;
-    [SerializeField] GameObject chapterPurchaseButton;
+    [SerializeField] GameObject chapterPurchase;
+    [SerializeField] Button chapterPurchaseButton;
+    [SerializeField] TMP_Text chapterPurchaseText;
     private Clown targetClown;
     // Start is called before the first frame update
     void Start()
@@ -26,9 +29,13 @@ public class bookPage : MonoBehaviour
 
         updateInfo();
 
-        if (targetClown.unlockedInfo == chapters.Length)
+        if (targetClown.unlockedInfo + 1f == chapters.Length)
         {
-            chapterPurchaseButton.SetActive(false);
+            chapterPurchase.SetActive(false);
+        }
+        else
+        {
+            chapterPurchase.SetActive(true);
         }
     }
 
@@ -49,13 +56,16 @@ public class bookPage : MonoBehaviour
                 {
                     c.unlockedInfo++;
 
-                    if(c.unlockedInfo == chapters.Length)
+                    if(c.unlockedInfo + 1f == chapters.Length)
                     {
-                        chapterPurchaseButton.SetActive(false);
+                        chapterPurchase.SetActive(false);
+                    }
+                    else
+                    {
+                        chapterPurchase.SetActive(true);
                     }
                 }
             }
-
             updateInfo();
             purchasePrompt.SetActive(false);
         }
@@ -93,6 +103,17 @@ public class bookPage : MonoBehaviour
             }
 
             i++;
+        }
+
+        if (infoMang.clownCoins == 0)
+        {
+            chapterPurchaseText.text = "Insufficient Coins to Unlock";
+            chapterPurchaseButton.interactable = false;
+        }
+        else
+        {
+            chapterPurchaseText.text = "Unlock Next Chapter";
+            chapterPurchaseButton.interactable = true;
         }
     }
 }

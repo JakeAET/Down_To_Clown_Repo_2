@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-
 // following tutorial: https://youtu.be/LBs6qOgCDOY
 
 public class saveManager : MonoBehaviour
@@ -16,6 +15,9 @@ public class saveManager : MonoBehaviour
     private tutorialManager tutorialMang;
     private bool initialized = false;
     private bool managerCheck = false;
+
+    [SerializeField] Clown[] defaultClowns;
+    [SerializeField] Attraction[] defaultAttractions;
 
     private void Awake()
     {
@@ -46,6 +48,7 @@ public class saveManager : MonoBehaviour
         //manual save
         if (Input.GetKeyDown("r"))
         {
+            // reset save file
             wipeSave();
         }
 
@@ -109,6 +112,18 @@ public class saveManager : MonoBehaviour
             state = saveAssist.Deserialize<saveState>(PlayerPrefs.GetString("save"));
 
             int i = 0;
+
+            foreach (Attraction a in state.attractionData) // Ensure all attraction data aligns with the default attractions
+            {
+                a.increaseRate = defaultAttractions[i].increaseRate;
+                a.unlockTicketCost = defaultAttractions[i].unlockTicketCost;
+                a.unlockCoinCost = defaultAttractions[i].unlockCoinCost;
+                a.ticketProduction = defaultAttractions[i].ticketProduction;
+                a.whimsyProduction = defaultAttractions[i].whimsyProduction;
+                i++;
+            }
+
+            i = 0;
 
             foreach (Attraction a in state.attractionData)
             {
@@ -175,7 +190,7 @@ public class saveManager : MonoBehaviour
     {
         SceneManager.LoadScene(sceneName);
 
-        if(sceneName == "Game Screen" && !initialized)
+        if (sceneName == "Game Screen" && !initialized)
         {
             managerCheck = true;
             initialized = true;

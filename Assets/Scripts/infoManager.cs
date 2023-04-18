@@ -23,6 +23,11 @@ public class infoManager : MonoBehaviour
     public int uncommonClowns;
     public int commonClowns;
 
+    private bool canFlex = true;
+    private float flexTimer;
+
+    public long lastLoginTime;
+
     void Awake()
     {
         if (Instance != null && Instance != this)
@@ -47,7 +52,7 @@ public class infoManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.T))
         {
-            funnyMoney += 500;
+            funnyMoney += 100000000;
         }
 
         if (Input.GetKeyDown(KeyCode.C))
@@ -58,11 +63,40 @@ public class infoManager : MonoBehaviour
         {
             whimsy += 100;
         }
+
+        if (!canFlex)
+        {
+            flexTimer += Time.deltaTime;
+            if (flexTimer >= 0.2f)
+            {
+                canFlex = true;
+                flexTimer = 0f;
+            }
+        }
     }
 
     public void ticketIncrease(int num)
     {
         funnyMoney += num;
+    }
+
+    public void slowTicketIncrease(int num)
+    {
+        StartCoroutine(slowUpdateTickets(0.001f, num));
+        GameObject ticketCounter = GameObject.FindGameObjectWithTag("ticketCounter");
+        LeanTween.scale(ticketCounter, new Vector3(1.1f, 1.1f, 1.1f), 0.1f).setEase(LeanTweenType.easeInOutCubic);
+        LeanTween.scale(ticketCounter, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInOutCubic).setDelay(0.1f);
+    }
+
+    public void clickerTicketFlex()
+    {
+        if (canFlex)
+        {
+            canFlex = false;
+            GameObject ticketCounter = GameObject.FindGameObjectWithTag("ticketCounter");
+            LeanTween.scale(ticketCounter, new Vector3(1.1f, 1.1f, 1.1f), 0.1f).setEase(LeanTweenType.easeInOutCubic);
+            LeanTween.scale(ticketCounter, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInOutCubic).setDelay(0.1f);
+        }
     }
 
     public void duplicateClown(int num)
@@ -72,6 +106,9 @@ public class infoManager : MonoBehaviour
 
     public void whimsyIncrease(int num)
     {
+        GameObject whimsyCounter = GameObject.FindGameObjectWithTag("whimsyCounter");
+        LeanTween.scale(whimsyCounter, new Vector3(1.2f, 1.2f, 1.2f), 0.3f).setEase(LeanTweenType.easeInOutCubic);
+        LeanTween.scale(whimsyCounter, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInOutCubic).setDelay(0.3f);
         StartCoroutine(slowUpdateWhimsy(0.01f, num));
     }
 
@@ -108,6 +145,16 @@ public class infoManager : MonoBehaviour
         {
             yield return new WaitForSeconds(waitTime);
             whimsy++;
+        }
+    }
+
+    private IEnumerator slowUpdateTickets(float waitTime, float num)
+    {
+        for (int i = 0; i < num; i++)
+        {
+            //yield return new WaitForSeconds(waitTime);
+            yield return null;
+            funnyMoney++;
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using UnityEngine;
+using TMPro;
 
 public class uiManager : MonoBehaviour
 {
@@ -10,6 +11,8 @@ public class uiManager : MonoBehaviour
     private clownManager clownMang;
     private gachaManager gachaMang;
     private tutorialManager tutorialMang;
+    private infoManager infoMang;
+    private saveManager saveMang;
     private touchCam tCam;
 
     [SerializeField] GameObject bottomUI;
@@ -19,8 +22,11 @@ public class uiManager : MonoBehaviour
 
     // Summon Elements
     [SerializeField] GameObject[] dupeSprite;
+    [SerializeField] GameObject[] clownTitles;
     private bool summoning;
     [SerializeField] Button summonButton;
+    [SerializeField] TMP_Text summonText;
+    [SerializeField] Button exitSummonButton;
     [SerializeField] GameObject leftCurtain;
     [SerializeField] GameObject rightCurtain;
     [SerializeField] GameObject drumCombo;
@@ -31,6 +37,7 @@ public class uiManager : MonoBehaviour
     [SerializeField] GameObject clownCoinCounter;
     private GameObject targetClown;
     private GameObject targetDupe;
+    public GameObject targetTitle;
     private float summonTimer;
     private bool currentDuplicate;
     private bool firstSummon = false;
@@ -40,12 +47,11 @@ public class uiManager : MonoBehaviour
     // Settings Buttons
     private bool sfxMute;
     private bool musicMute;
-    [SerializeField] Image sfxIcon;
-    [SerializeField] Image musicIcon;
-    [SerializeField] Sprite sfxOn;
-    [SerializeField] Sprite sfxOff;
-    [SerializeField] Sprite musicOn;
-    [SerializeField] Sprite musicOff;
+
+    [SerializeField] GameObject sfxOn;
+    [SerializeField] GameObject sfxOff;
+    [SerializeField] GameObject musicOn;
+    [SerializeField] GameObject musicOff;
 
     void Awake()
     {
@@ -66,37 +72,29 @@ public class uiManager : MonoBehaviour
         clownMang = GameObject.FindGameObjectWithTag("clownManager").GetComponent<clownManager>();
         gachaMang = GameObject.FindGameObjectWithTag("gachaManager").GetComponent<gachaManager>();
         tutorialMang = GameObject.FindGameObjectWithTag("tutorialManager").GetComponent<tutorialManager>();
+        infoMang = GameObject.FindGameObjectWithTag("infoManager").GetComponent<infoManager>();
+        saveMang = GameObject.FindGameObjectWithTag("saveManager").GetComponent<saveManager>();
         tCam = GameObject.FindGameObjectWithTag("touchCam").GetComponent<touchCam>();
 
         drumCombo.GetComponent<RectTransform>().localScale = new Vector3(0, 0, 0);
 
-        sfxMute = FindObjectOfType<audioManager>().sfxMute;
-        musicMute = FindObjectOfType<audioManager>().musicMute;
+        sfxMute = saveMang.state.sfxMute;
+        musicMute = saveMang.state.musicMute;
 
-        if (sfxMute)
-        {
-            sfxIcon.overrideSprite = sfxOff;
-        }
-        else
-        {
-            sfxIcon.overrideSprite = sfxOn;
-        }
+        sfxOn.SetActive(!sfxMute);
+        sfxOff.SetActive(sfxMute);
+        musicOn.SetActive(!musicMute);
+        musicOff.SetActive(musicMute);
 
-        if (musicMute)
+        foreach (GameObject t in clownTitles)
         {
-            musicIcon.overrideSprite = musicOn;
-        }
-        else
-        {
-            musicIcon.overrideSprite = musicOff;
+            t.transform.localScale = new Vector3(0, 0, 0);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         if (summoning)
         {
             summonTimer += Time.deltaTime;
@@ -109,7 +107,6 @@ public class uiManager : MonoBehaviour
             if (!currentDuplicate)
             {
                 gachaMang.summonComplete(false);
-                summonButton.interactable = true;
             }
             firstSummon = false;
         }
@@ -120,15 +117,37 @@ public class uiManager : MonoBehaviour
             summoning = false;
             summonTimer = 0f;
 
+            if (infoMang.whimsy >= 100 && tutorialMang.tutorialStep > 4)
+            {
+                summonButton.interactable = true;
+                summonText.text = "Summon x1";
+            }
+            else if (infoMang.whimsy < 100)
+            {
+                summonButton.interactable = false;
+                summonText.text = "Insufficient Whimsy";
+            }
+
             if (tutorialMang.step == tutorialManager.tutorial.Summon1 && !tutorialMang.summonClicked)
             {
                 tutorialMang.summonClick();
             }
+            exitSummonButton.interactable = true;
         }
 
         if(summonTimer > 6f && currentDuplicate)
         {
-            summonButton.interactable = true;
+            if (infoMang.whimsy >= 100 && tutorialMang.tutorialStep > 4)
+            {
+                summonButton.interactable = true;
+                summonText.text = "Summon x1";
+            }
+            else if (infoMang.whimsy < 100)
+            {
+                summonButton.interactable = false;
+                summonText.text = "Insufficient Whimsy";
+            }
+            exitSummonButton.interactable = true;
             gachaMang.summonComplete(true);
             LeanTween.moveLocal(clownCoin, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
             clownCoin.transform.localScale = new Vector3(0, 0, 0);
@@ -164,10 +183,26 @@ public class uiManager : MonoBehaviour
         if (active)
         {
             LeanTween.moveLocal(bottomUI, new Vector3(0, 0, 0), 1f).setEase(LeanTweenType.easeOutCubic);
+            Debug.Log("bottom active");
         }
         else
         {
             LeanTween.moveLocal(bottomUI, new Vector3(0, -400, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic);
+            Debug.Log("bottom hidden");
+        }
+    }
+
+    public void bottomInstant(bool active, string debugReason)
+    {
+        if (active)
+        {
+            LeanTween.moveLocal(bottomUI, new Vector3(0, 0, 0), 0.01f).setEase(LeanTweenType.easeOutCubic);
+            Debug.Log("bottomInstant active, triggered by " + debugReason);
+        }
+        else
+        {
+            LeanTween.moveLocal(bottomUI, new Vector3(0, -400, 0), 0.01f).setEase(LeanTweenType.easeInOutCubic);
+            Debug.Log("bottomInstant hidden, triggered by " + debugReason);
         }
     }
 
@@ -177,6 +212,19 @@ public class uiManager : MonoBehaviour
         {
             if (active)
             {
+                targetTitle = null;
+
+                if (infoMang.whimsy >= 100 && tutorialMang.tutorialStep > 4)
+                {
+                    summonButton.interactable = true;
+                    summonText.text = "Summon x1";
+                }
+                if (infoMang.whimsy < 100)
+                {
+                    summonButton.interactable = false;
+                    summonText.text = "Insufficient Whimsy";
+                }
+
                 if (tutorialMang.step == tutorialManager.tutorial.Whimsy && !tutorialMang.tentClicked)
                 {
                     tutorialMang.tentClick();
@@ -194,6 +242,8 @@ public class uiManager : MonoBehaviour
             }
             else
             {
+                vanishClownTitle();
+
                 tCam.zoomLockCam("default");
 
                 LeanTween.moveLocal(bottomUI, new Vector3(0, 0, 0), 1f).setEase(LeanTweenType.easeOutCubic);
@@ -262,12 +312,23 @@ public class uiManager : MonoBehaviour
 
     public void summonSequence(int clownIndex, string name, string rarity, bool duplicate)
     {
+        if(targetTitle != null)
+        {
+            LeanTween.scale(targetTitle, new Vector3(0, 0, 0), 0.5f).setEase(LeanTweenType.easeInCirc);
+        }
+
+        FindObjectOfType<audioManager>().Play("drumroll");
         summoning = true;
         firstSummon = true;
         summonButton.interactable = false;
+        exitSummonButton.interactable = false;
         drumCombo.GetComponent<Animator>().SetTrigger("startDrum");
         targetClown = clownMang.clownSprites[clownIndex];
         currentDuplicate = duplicate;
+        targetTitle = clownTitles[clownIndex];
+
+        LeanTween.scale(targetTitle, new Vector3(1.2f, 1.2f, 1.2f), 0.5f).setEase(LeanTweenType.easeOutElastic).setDelay(3f);
+        LeanTween.scale(targetTitle, new Vector3(1, 1, 1), 0.5f).setEase(LeanTweenType.easeInCirc).setDelay(4f);
 
         if (!duplicate)
         {
@@ -299,27 +360,29 @@ public class uiManager : MonoBehaviour
             LeanTween.scale(clownCoinCounter, new Vector3(1f, 1f, 1f), 0.3f).setEase(LeanTweenType.easeInOutCubic).setDelay(5.8f);
         }
 
-        LeanTween.moveLocal(drumCombo, new Vector3(0, 800, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic).setDelay(2f);
+        LeanTween.moveLocal(drumCombo, new Vector3(0, 1800, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic).setDelay(2f);
         LeanTween.alpha(drum.GetComponent<RectTransform>(), 0, 0.5f).setDelay(2f);
         LeanTween.alpha(drumStick1.GetComponent<RectTransform>(), 0, 0.5f).setDelay(2f);
         LeanTween.alpha(drumStick2.GetComponent<RectTransform>(), 0, 0.5f).setDelay(2f);
         LeanTween.alpha(drum.GetComponent<RectTransform>(), 1, 0.5f).setDelay(5f);
         LeanTween.alpha(drumStick1.GetComponent<RectTransform>(), 1, 0.5f).setDelay(5f);
         LeanTween.alpha(drumStick2.GetComponent<RectTransform>(), 1, 0.5f).setDelay(5f);
-        LeanTween.moveLocal(drumCombo, new Vector3(0, -385, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic).setDelay(4f);
+        LeanTween.moveLocal(drumCombo, new Vector3(0, -400, 0), 0.5f).setEase(LeanTweenType.easeInOutCubic).setDelay(4f);
     }
 
     public void sfxButton()
     {
-        if (sfxMute)
+        if (sfxMute) // unmute
         {
-            sfxIcon.overrideSprite = sfxOn;
+            sfxOff.SetActive(false);
+            sfxOn.SetActive(true);
             FindObjectOfType<audioManager>().muteSFX(false);
             sfxMute = false;
         }
-        else
+        else // mute
         {
-            sfxIcon.overrideSprite = sfxOff;
+            sfxOff.SetActive(true);
+            sfxOn.SetActive(false);
             FindObjectOfType<audioManager>().muteSFX(true);
             sfxMute = true;
         }
@@ -327,17 +390,29 @@ public class uiManager : MonoBehaviour
 
     public void musicButton()
     {
-        if (musicMute)
+        if (musicMute) // unmute
         {
-            musicIcon.overrideSprite = musicOn;
+            
+            musicOff.SetActive(false);
+            musicOn.SetActive(true);
             FindObjectOfType<audioManager>().muteMusic(false);
             musicMute = false;
         }
-        else
+        else // mute
         {
-            musicIcon.overrideSprite = musicOff;
+            musicOff.SetActive(true);
+            musicOn.SetActive(false);
             FindObjectOfType<audioManager>().muteMusic(true);
             musicMute = true;
+        }
+    }
+
+    public void vanishClownTitle()
+    {
+        if(targetTitle != null)
+        {
+            targetTitle.transform.localScale = new Vector3(0, 0, 0);
+            targetTitle = null;
         }
     }
 }

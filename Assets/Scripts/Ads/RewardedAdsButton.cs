@@ -47,10 +47,10 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             long period = 10L * 60L * 1000L * 10000L;
             long timeStamp = System.DateTime.Now.Ticks + period;
             int secondsPassed = (int)((int)(timeStamp / 10000000) - (saveMang.state.lastAdWatched / 10000000));
-            int timeRemaining = 43199 - secondsPassed;
-            string hours = Mathf.Floor((timeRemaining % 216000) / 3600).ToString("00");
+            int timeRemaining = 7199 - secondsPassed;
+            string hours = Mathf.Floor((timeRemaining % 216000) / 3600).ToString("0");
             string minutes = Mathf.Floor((timeRemaining % 3600) / 60).ToString("00");
-            string output = "<color=white>" + hours + " hours and " + minutes + " minutes</color> remaining until next available ad";
+            string output = "Next ad available in <color=white>" + hours + "h " + minutes + "m</color>";
             promptText.text = output;
 
             if (timeRemaining <= 0)
@@ -147,7 +147,7 @@ public class RewardedAdsButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAds
             long period = 10L * 60L * 1000L * 10000L;
             long timeStamp = System.DateTime.Now.Ticks + period;
             int secondsPassed = (int)((int)(timeStamp / 10000000) - (saveMang.state.lastAdWatched / 10000000));
-            canWatchAd = secondsPassed > 43200;
+            canWatchAd = secondsPassed > 7200;
             _showAdButton.interactable = canWatchAd;
 
             if (canWatchAd)
